@@ -32,10 +32,15 @@
     margin-left: -428px;
   }
 
+  .buttonimage{
+    position:absolute;
+    left: 50%;
+  }
+
   #header{
     position: absolute;
     width: 99%;
-    top: 10%;
+    top: 15%;
   }
 
   #magnifyingglass{
@@ -45,6 +50,41 @@
     margin-left: -100px;
     margin-top: -150px;
     background: "#000000";
+  }
+
+  #beginbutton{
+    position: absolute;
+    top: 35%;
+    margin-left: 100px;
+    float: left;
+  }
+
+  #achievementsbutton{
+    position: absolute;
+    top: 35%;
+    right: 400px;
+  }
+
+  .buttontext{
+    z-index:100;
+    position:absolute;
+    left: 176px;
+    top: 25px;
+    font-family: neb;
+    font-size: 24px;
+    margin-left:-150px;
+    width: 300px;
+  }
+
+  .achbuttontext{
+    z-index:100;
+    position:absolute;
+    left: 199px;
+    top: 25px;
+    font-family: neb;
+    font-size: 24px;
+    margin-left:-150px;
+    width: 300px;
   }
   </style>
 </head>
@@ -59,6 +99,16 @@
     <img class="magimage" width="300" height="300" src="assets/spriteMagnifyingGlass.png">
   </div>
 
-</body>
+  <div id="beginbutton">
+    <img class="buttonimage" width="300" height="81" src="assets/spriteButton.png">
+    <font class="buttontext">BEGIN YOUR STORY</font>
+  </div>
 
+  <div id="achievementsbutton">
+    <img class="buttonimage" width="300" height="81" src="assets/spriteButton.png">
+    <font class="achbuttontext">ACHIEVEMENTS</font>
+  </div>
+
+</body>
+<script type="text/javascript" src="js/homejs.js"></script>
 </html>
