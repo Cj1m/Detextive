@@ -1,8 +1,64 @@
 <html>
+
 <head>
+  <style>
+  @font-face {
+    font-family: neb;
+    src: url("assets/N_E_B.TTF");
+}
+
+  body{
+    background-image: url('assets/bg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  .headertext{
+    z-index:100;
+    position:absolute;
+    font-family: neb;
+    font-size: 50px;
+    text-align: center;
+    width: 400px;
+    margin-left: -200px;
+    left:50%;
+    margin-top: 9px;
+  }
+
+  .headerimage{
+    position:absolute;
+    left: 50%;
+    margin-left: -428px;
+  }
+
+  #header{
+    position: absolute;
+    width: 99%;
+    top: 10%;
+  }
+
+  #magnifyingglass{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -60px;
+    margin-top: -60px;
+    background: "#000000";
+  }
+  </style>
 </head>
 
-<body>
-  <h1>Hello world</h1>
+<body bgcolor="#000000">
+  <div id="header">
+    <img class="headerimage" width="856" height="81" src="assets/spriteHeader.png">
+    <font class="headertext">DETEXTIVE</font>
+  </div>
+
+  <div id="magnifyingglass">
+    <img class="magimage" width="120" height="120" src="assets/spriteMagnifyingGlass.png">
+  </div>
+
 </body>
+
 </html>
