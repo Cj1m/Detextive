@@ -1,0 +1,105 @@
+@font-face {
+  font-family: neb;
+  src: url("../assets/N_E_B.TTF");
+}
+
+body{
+  background-image: url('../assets/bg.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.headertext{
+  z-index:100;
+  position:absolute;
+  font-family: neb;
+  font-size: 50px;
+  text-align: center;
+  width: 400px;
+  margin-left: -200px;
+  left:50%;
+  margin-top: 9px;
+}
+
+.headerimage{
+  position:absolute;
+  left: 50%;
+  margin-left: -428px;
+}
+
+.buttonimage{
+  position:absolute;
+  left: 50%;
+}
+
+#header{
+  position: absolute;
+  width: 100%;
+  left:0px;
+  top: 0px;
+}
+
+#magnifyingglass{
+  position: absolute;
+  left: 50%;
+  top: 260px;
+  margin-left: -100px;
+  margin-top: -150px;
+  background: "#000000";
+}
+
+#beginbutton{
+  position: absolute;
+  top: 160px;
+  margin-left: -580px;
+  left:50%;
+  width:300px;
+}
+
+#achievementsbutton{
+  position: absolute;
+  top: 160px;
+  margin-right: -280px;
+  right:50%;
+  width:300px;
+}
+
+.buttontext{
+  z-index:100;
+  position:absolute;
+  left: 330px;
+  top: 25px;
+  font-family: neb;
+  font-size: 24px;
+  margin-left:-150px;
+  width: 300px;
+}
+
+.achbuttontext{
+  z-index:100;
+  position:absolute;
+  left: 347px;
+  top: 25px;
+  font-family: neb;
+  font-size: 24px;
+  margin-left:-150px;
+  width: 300px;
+}
+
+#animations{
+  position: fixed;
+  width: 100%;
+  left:0px;
+  height: 50px;
+  bottom: 0%;
+  z-index: -1;
+}
+
+#holder{
+  position: absolute;
+  width: 100%;
+  height: 420px;
+  top:20%;
+  left:0%;
+}

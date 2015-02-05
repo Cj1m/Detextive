@@ -1,98 +1,11 @@
 <html>
 
 <head>
-  <style>
-  @font-face {
-    font-family: neb;
-    src: url("assets/N_E_B.TTF");
-}
-
-  body{
-    background-image: url('assets/bg.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-  }
-
-  .headertext{
-    z-index:100;
-    position:absolute;
-    font-family: neb;
-    font-size: 50px;
-    text-align: center;
-    width: 400px;
-    margin-left: -200px;
-    left:50%;
-    margin-top: 9px;
-  }
-
-  .headerimage{
-    position:absolute;
-    left: 50%;
-    margin-left: -428px;
-  }
-
-  .buttonimage{
-    position:absolute;
-    left: 50%;
-  }
-
-  #header{
-    position: absolute;
-    width: 99%;
-    top: 15%;
-  }
-
-  #magnifyingglass{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -100px;
-    margin-top: -150px;
-    background: "#000000";
-  }
-
-  #beginbutton{
-    position: absolute;
-    top: 35%;
-    margin-left: -580px;
-    left:50%;
-    width:300px;
-  }
-
-  #achievementsbutton{
-    position: absolute;
-    top: 35%;
-    margin-right: -280px;
-    right:50%;
-    width:300px;
-  }
-
-  .buttontext{
-    z-index:100;
-    position:absolute;
-    left: 330px;
-    top: 25px;
-    font-family: neb;
-    font-size: 24px;
-    margin-left:-150px;
-    width: 300px;
-  }
-
-  .achbuttontext{
-    z-index:100;
-    position:absolute;
-    left: 347px;
-    top: 25px;
-    font-family: neb;
-    font-size: 24px;
-    margin-left:-150px;
-    width: 300px;
-  }
-  </style>
+  <link rel="stylesheet" type="text/css" href="stylesheets/homepagestylesheet.css" />
 </head>
 
 <body bgcolor="#000000">
+  <div id="holder">
   <div id="header">
     <img class="headerimage" width="856" height="81" src="assets/spriteHeader.png">
     <font class="headertext">DETEXTIVE</font>
@@ -111,7 +24,8 @@
     <img class="buttonimage" width="300" height="81" src="assets/spriteButton.png">
     <font class="achbuttontext">ACHIEVEMENTS</font>
   </div>
-
+</div>
+  <canvas id="animations"></canvas>
+  <script type="text/javascript" src="js/homejs.js"></script>
 </body>
-<script type="text/javascript" src="js/homejs.js"></script>
 </html>
