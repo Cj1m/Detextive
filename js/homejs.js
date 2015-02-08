@@ -58,28 +58,29 @@ function draw(){
 }
 
 function addFirstObjects(){
-  var amount = Math.round(canvas.width / 200);
-  for(i = 0; i < amount; i++){
+  var amount = Math.round(canvas.width / 200) + 1;
+  for(i = amount; i >= 0; i--){
     var x = 1 + Math.round(Math.random() * 6);
     var objectImage ="assets/object" + x + ".png";
     objectsOnCanvas.push(objectImage);
-    objectXs.push(i * 200);
+    objectXs.push(i * 200 - 200);
   }
+  console.log(objectXs)
 }
 
 function addObject(){
     if(objectXs.length > 0){
-      if(objectXs[objectXs.length - 1] > 200){
+      if(objectXs[objectXs.length - 1] > 0){
         var x = 1 + Math.round(Math.random() * 6);
         var objectImage ="assets/object" + x + ".png";
         objectsOnCanvas.push(objectImage);
-        objectXs.push(0);
+        objectXs.push(-200);
       }
     }else{
       var x = 1 + Math.round(Math.random() * 6);
       var objectImage ="assets/object" + x + ".png";
       objectsOnCanvas.push(objectImage);
-      objectXs.push(0);
+      objectXs.push(-200);
     }
 
 
