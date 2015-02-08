@@ -54,7 +54,6 @@ function draw(){
       objectsOnCanvas.splice(i, 1);
       objectXs.splice(i, 1);
     }
-    console.log(objectsOnCanvas);
   }
 }
 
@@ -71,8 +70,10 @@ function addObject(){
         window.addEventListener('resize', resizeCanvas, false);
 
         function resizeCanvas() {
+              if(canvas != null){
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
+              }
         }
         resizeCanvas();
 })();
