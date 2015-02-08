@@ -30,8 +30,7 @@ window.onload = function(){
 
   setInterval(blinkCursorSprite, 530);
   setInterval(draw, 33);
-  addObject();
-  setInterval(addObject, 6000);
+  setInterval(addObject, 33);
 }
 
 function blinkCursorSprite(){
@@ -58,12 +57,22 @@ function draw(){
 }
 
 function addObject(){
-  var x = 1 + Math.round(Math.random() * 6);
-  var objectImage ="assets/object" + x + ".png";
+    if(objectXs.length > 0){
+      if(objectXs[objectXs.length - 1] > 200){
+        var x = 1 + Math.round(Math.random() * 6);
+        var objectImage ="assets/object" + x + ".png";
+        objectsOnCanvas.push(objectImage);
+        objectXs.push(0);
+      }
+    }else{
+      var x = 1 + Math.round(Math.random() * 6);
+      var objectImage ="assets/object" + x + ".png";
+      objectsOnCanvas.push(objectImage);
+      objectXs.push(0);
+    }
 
 
-  objectsOnCanvas.push(objectImage);
-  objectXs.push(0);
+
 }
 
 (function() {
