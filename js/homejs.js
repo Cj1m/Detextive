@@ -28,6 +28,7 @@ window.onload = function(){
     window.location.href = "achievements.html";
   };
 
+  addFirstObjects();
   setInterval(blinkCursorSprite, 530);
   setInterval(draw, 33);
   setInterval(addObject, 33);
@@ -53,6 +54,16 @@ function draw(){
       objectsOnCanvas.splice(i, 1);
       objectXs.splice(i, 1);
     }
+  }
+}
+
+function addFirstObjects(){
+  var amount = Math.round(canvas.width / 200);
+  for(i = 0; i < amount; i++){
+    var x = 1 + Math.round(Math.random() * 6);
+    var objectImage ="assets/object" + x + ".png";
+    objectsOnCanvas.push(objectImage);
+    objectXs.push(i * 200);
   }
 }
 
