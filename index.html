@@ -1,37 +1,36 @@
 <html>
+  <head>
+    <link rel="icon"
+        type="image/png"
+        href="assets/spriteMagnifyingGlass.png">
+    <link rel="stylesheet" type="text/css" href="stylesheets/homepagestylesheet.css" />
+  </head>
 
-<head>
-  <link rel="icon"
-      type="image/png"
-      href="assets/spriteMagnifyingGlass.png">
-  <link rel="stylesheet" type="text/css" href="stylesheets/homepagestylesheet.css" />
-</head>
+  <body bgcolor="#000000">
+    <div id="holder">
+      <div id="header">
+        <img class="headerimage" width="856" height="81" src="assets/spriteHeader.png">
+        <font class="headertext">DETEXTIVE</font>
+      </div>
 
-<body bgcolor="#000000">
-  <div id="holder">
-  <div id="header">
-    <img class="headerimage" width="856" height="81" src="assets/spriteHeader.png">
-    <font class="headertext">DETEXTIVE</font>
-  </div>
+      <div id="magnifyingglass">
+        <img class="magimage" width="300" height="300" src="assets/spriteMagnifyingGlass.png">
+          <img id="cursorsprite" width="80" height="80" src="assets/spriteCursor.png"/>
+        </img>
 
-  <div id="magnifyingglass">
-    <img class="magimage" width="300" height="300" src="assets/spriteMagnifyingGlass.png">
-      <img id="cursorsprite" width="80" height="80" src="assets/spriteCursor.png"/>
-    </img>
+      </div>
 
-  </div>
+      <div id="beginbutton">
+        <img class="buttonimage" width="300" height="81" src="assets/spriteButton.png">
+        <font class="buttontext">BEGIN YOUR STORY</font>
+      </div>
 
-  <div id="beginbutton">
-    <img class="buttonimage" width="300" height="81" src="assets/spriteButton.png">
-    <font class="buttontext">BEGIN YOUR STORY</font>
-  </div>
-
-  <div id="achievementsbutton">
-    <img class="buttonimage" width="300" height="81" src="assets/spriteButton.png">
-    <font class="achbuttontext">ACHIEVEMENTS</font>
-  </div>
-</div>
-  <canvas id="animations" width="100%" height="100%"></canvas>
-  <script type="text/javascript" src="js/homejs.js"></script>
-</body>
+      <div id="achievementsbutton">
+        <img class="buttonimage" width="300" height="81" src="assets/spriteButton.png">
+        <font class="achbuttontext">ACHIEVEMENTS</font>
+      </div>
+    </div>
+    <canvas id="animations" width="100%" height="100%"></canvas>
+    <script type="text/javascript" src="js/homejs.js"></script>
+  </body>
 </html>

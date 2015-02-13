@@ -1,0 +1,32 @@
+@font-face {
+  font-family: ebitparty; /* don't use '8'bitparty as it won't work, e=8*/
+  src: url("../assets/8_bit_party.TTF");
+}
+
+body {
+  background-image: url('../assets/gameBg.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-color: #000000;
+}
+
+.paraContainer{
+  position: relative;
+  background-image: url('../assets/mainRect.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.paraText {
+  margin-left: auto;
+  margin-right: auto;
+  width: 630px;
+  height: 900px;
+  line-height: 32px;
+  text-align: left;
+  color: #ffffff;
+  font-family: ebitparty;
+  padding-top: 20px;
+}
