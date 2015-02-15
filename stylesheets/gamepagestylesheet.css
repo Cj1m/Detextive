@@ -11,18 +11,71 @@ body {
   background-color: #000000;
 }
 
+.leftContainer{
+  width: 25%;
+  height: 100%;
+  margin-left: 1%;
+  float: left;
+}
+
+.rightContainer{
+  width: 25%;
+  height: 100%;
+  float: right;
+  margin-right: 1%;
+}
+
+.invContainer{
+  position: relative;
+  border: 15px solid transparent;
+  background-color: rgba(0,0,0,0.5);
+  height: 45%;
+  overflow-y: scroll;
+  -webkit-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+  -o-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+  border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+}
+
+.notesContainer{
+  position: relative;
+  border: 15px solid transparent;
+  background-color: rgba(0,0,0,0.5);
+  height: 45%;
+  overflow-y: scroll;
+  -webkit-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+  -o-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+  border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+}
+
+.mapContainer{
+  position: relative;
+  border: 15px solid transparent;
+  background-color: rgba(0,0,0,0.5);
+  height: 45%;
+  -webkit-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+  -o-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+  border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+}
+
+.settingsContainer{
+  position: relative;
+  border: 15px solid transparent;
+  background-color: rgba(0,0,0,0.5);
+  height: 45%;
+  -webkit-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+  -o-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+  border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+}
+
 .paraContainer{
   position: relative;
   border: 15px solid transparent;
   background-color: rgba(0,0,0,0.5);
-  /*background-image: url('../assets/mainRect.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;*/
   margin-left: auto;
   margin-right: auto;
-  width: 700px;
+  width: 40%;
   height: 100%;
+  float: center;
   overflow-y: scroll;
   -webkit-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
   -o-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
@@ -33,11 +86,10 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 630px;
+  width: 90%;
   height: auto;
   line-height: 32px;
   text-align: left;
   color: #ffffff;
   font-family: ebitparty;
-  padding-top: 20px;
 }
