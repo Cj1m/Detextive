@@ -7,24 +7,24 @@ window.onLoad = (function($) {
     current = 0,
     elem = this;
 
+    typeTime = 45;
+
     setInterval(function() {
       if(current < contentArray.length) {
         elem.text(elem.text() + contentArray[current++]);
         mainCon = document.getElementById("mainContainer");
         mainCon.scrollTop = mainCon.scrollHeight;
       }
-    }, 45);
-
-
-
+    }, typeTime);
   };
 })(jQuery);
 
 $(window).resize(fixSizes);
 
 function fixSizes(){
+  mapContainer = document.getElementById("map");
   mainRect = document.getElementById("mainContainer");
-  size = (window.innerHeight - 60);
+  size = (map.clientHeight * 2 + 30);
   mainRect.style.height = size + "px";
 
   timesRun++;
