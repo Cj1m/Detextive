@@ -93,3 +93,21 @@ body {
   color: #ffffff;
   font-family: ebitparty;
 }
+
+/*Scroll bar stuff!*/
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgb(151, 151, 151);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgb(189, 189, 189);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
