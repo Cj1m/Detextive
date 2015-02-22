@@ -8,8 +8,10 @@
     <div id="leftContainer" class="leftContainer">
       <div id="inv" class="invContainer">
       </div>
+
       <div id="breaker" class="breaker">
       </div>
+
       <div id="notes" class="notesContainer">
       </div>
     </div>
@@ -17,14 +19,21 @@
     <div id="rightContainer" class="rightContainer">
       <div id="map" class="mapContainer">
       </div>
+
       <div id="breaker2" class="breaker">
       </div>
+
       <div id="settings" class="settingsContainer">
       </div>
     </div>
 
     <div id="mainContainer" class="paraContainer">
-      <p class="paraText"></p>
+      <p id="paraText" class="paraText"></p>
+
+      <div id="inputTextBox" class="inputTextBox">
+        <input id="inputText" class="inputText" type="text" placeholder="What do you do now?" onkeypress="printText()">
+      </div>
+
       <script type="text/javascript" src="js/gamejs.js"></script>
     </div>
   </body>

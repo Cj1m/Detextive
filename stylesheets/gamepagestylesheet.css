@@ -12,14 +12,14 @@ body {
 }
 
 .leftContainer{
-  width: 25%;
+  width: 27%;
   height: auto;
   float: left;
   margin-left: 1%;
 }
 
 .rightContainer{
-  width: 25%;
+  width: 27%;
   height: auto;
   float: right;
   margin-right: 1%;
@@ -35,9 +35,9 @@ body {
   background-color: rgba(0,0,0,0.5);
   height: 45%;
   overflow-y: scroll;
-  -webkit-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
-  -o-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
-  border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+  -webkit-border-image: url('../assets/dottedlinedsqr.png') 50 50 round;
+  -o-border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
+  border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
 }
 
 .notesContainer{
@@ -46,9 +46,9 @@ body {
   background-color: rgba(0,0,0,0.5);
   height: 45%;
   overflow-y: scroll;
-  -webkit-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
-  -o-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
-  border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+  -webkit-border-image: url('../assets/dottedlinedsqr.png') 50 50 round;
+  -o-border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
+  border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
 }
 
 .mapContainer{
@@ -56,9 +56,9 @@ body {
   border: 15px solid transparent;
   background-color: rgba(0,0,0,0.5);
   height: 45%;
-  -webkit-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
-  -o-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
-  border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+  -webkit-border-image: url('../assets/dottedlinedsqr.png') 50 50 round;
+  -o-border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
+  border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
 }
 
 .settingsContainer{
@@ -66,9 +66,9 @@ body {
   border: 15px solid transparent;
   background-color: rgba(0,0,0,0.5);
   height: 45%;
-  -webkit-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
-  -o-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
-  border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+  -webkit-border-image: url('../assets/dottedlinedsqr.png') 50 50 round;
+  -o-border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
+  border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
 }
 
 .paraContainer{
@@ -80,22 +80,50 @@ body {
   width: 40%;
   height: 100%;
   float: center;
-  overflow-y: scroll;
-  -webkit-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
-  -o-border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
-  border-image: url('../assets/dottedlinedsqr.png') 30 30 round;
+  -webkit-border-image: url('../assets/dottedlinedsqr.png') 50 50 round;
+  -o-border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
+  border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
 }
 
 .paraText {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
-  height: auto;
-  line-height: 32px;
+  margin-top: 1%;
+  padding-left: 2%;
+  overflow-y: scroll;
+  width: 98%;
+  height: 90%;
+  font-size: 14px;
+  line-height: 28px;
   text-align: left;
   color: #ffffff;
   font-family: ebitparty;
+}
+
+input[type="text"]{
+  position: relative;
+  align: center;
+  bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1%;
+  height: 6%;
+  width: 100%;
+  font-family: ebitparty;
+  font-size: 12px;
+  font-style: italic;
+  color: #ffffff;
+  background: rgba(224, 224, 224, 0.2);
+  border: solid 2px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  box-shadow: inset 0 0 3px 1px rgba(224, 224, 224, 0.4);
+  transition: box-shadow 0.3s, border 0.3s;
+}
+
+input[type="text"]:focus {
+  border: solid 2px rgba(224, 224, 224, 0.3);
+  outline: none;
 }
 
 /*Scroll bar stuff!*/
