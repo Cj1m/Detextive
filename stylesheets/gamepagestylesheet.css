@@ -13,9 +13,9 @@ body {
 
 .leftContainer{
   width: 25%;
-  height: 100%;
-  margin-left: 1%;
+  height: auto;
   float: left;
+  margin-left: 1%;
 }
 
 .rightContainer{
@@ -23,6 +23,10 @@ body {
   height: auto;
   float: right;
   margin-right: 1%;
+}
+
+.breaker{
+  height: 1%;
 }
 
 .invContainer{

@@ -24,7 +24,7 @@ $(window).resize(fixSizes);
 function fixSizes(){
   mapContainer = document.getElementById("map");
   mainRect = document.getElementById("mainContainer");
-  size = (map.clientHeight * 2 + 30);
+  size = (map.clientHeight * 2 + 37.5); /*I attempted to fix it, but it only works to an extent*/
   mainRect.style.height = size + "px";
 
   timesRun++;
