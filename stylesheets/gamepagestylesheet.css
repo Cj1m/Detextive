@@ -3,6 +3,11 @@
   src: url("../assets/8_bit_party.ttf");
 }
 
+@font-face {  
+  font-family: neb;
+  src: url("../assets/N_E_B.TTF");
+}
+
 body {
   background-image: url('../assets/gameBg.png');
   background-repeat: no-repeat;
@@ -38,6 +43,11 @@ body {
   -webkit-border-image: url('../assets/dottedlinedsqr.png') 50 50 round;
   -o-border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
   border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
+  font-size: 18px;
+  line-height: 0;
+  text-align: left;
+  color: #ffffff;
+  font-family: ebitparty;
 }
 
 .notesContainer{
@@ -49,6 +59,11 @@ body {
   -webkit-border-image: url('../assets/dottedlinedsqr.png') 50 50 round;
   -o-border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
   border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
+  font-size: 18px;
+  line-height: 0;
+  text-align: left;
+  color: #ffffff;
+  font-family: ebitparty;
 }
 
 .mapContainer{
@@ -59,6 +74,11 @@ body {
   -webkit-border-image: url('../assets/dottedlinedsqr.png') 50 50 round;
   -o-border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
   border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
+  font-size: 18px;
+  line-height: 0;
+  text-align: left;
+  color: #ffffff;
+  font-family: ebitparty;
 }
 
 .settingsContainer{
@@ -69,6 +89,11 @@ body {
   -webkit-border-image: url('../assets/dottedlinedsqr.png') 50 50 round;
   -o-border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
   border-image: url('../assets/dottedlinedsqr.png') 40 40 round;
+  font-size: 18px;
+  line-height: 0;
+  text-align: left;
+  color: #ffffff;
+  font-family: ebitparty;
 }
 
 .paraContainer{
