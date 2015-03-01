@@ -68,8 +68,8 @@ body{
 #cursorsprite{
   position: absolute;
   top: 0px;
-  margin-left: 64px;
-  margin-top: 64px;
+  margin-left: 75px;
+  margin-top: 53px;
   z-index: 1;
 }
 
