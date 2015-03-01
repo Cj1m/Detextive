@@ -14,11 +14,11 @@ var i = 0,
     text;
 
 function type() {
-    text = textOnScreen.slice(0, i+1);
     if (text === textOnScreen){
       setTimeout(function(){type();}, typeTime);
       return;
     }
+    text = textOnScreen.slice(0, i+1);
     i++;
     document.getElementById('paraText').innerHTML = text;
 
