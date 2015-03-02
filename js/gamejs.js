@@ -20,12 +20,15 @@ function type() {
     }
     text = textOnScreen.slice(0, i+1);
     i++;
-    document.getElementById('paraText').innerHTML = text;
+    var elem = document.getElementById('paraText');
+
+    elem.innerHTML = text;
 
     var char = text.slice(-1);
     console.log(char);
     if( char === '<' ) isTag = true;
     if( char === '>' ) isTag = false;
+    elem.scrollTop = elem.scrollHeight;
 
     if (isTag) return type();
     setTimeout(function(){type();}, typeTime);
