@@ -79,10 +79,10 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 1%;
-  padding-left: 2%;
+  padding-left: 0;
   overflow-y: scroll;
   width: 98%;
-  height: 73%;
+  height: 70%;
   font-size: 12px;
   line-height: 28px;
   text-align: left;
