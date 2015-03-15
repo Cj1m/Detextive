@@ -1,3 +1,4 @@
+var latestInput; //used to check for input
 var timer;
 var timesRun = 0;
 var textOnScreen = "";
@@ -61,6 +62,7 @@ function printText(event) {
   if(event.keyCode == 13){
       printMainText = document.getElementById("inputTextMain").value;
       addTextToScreen("<br><i>" + printMainText + "</i>");
+      latestInput = printMainText;
       x = document.getElementById("inputTextMain");
       x.value = "";
   }
