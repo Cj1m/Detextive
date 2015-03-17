@@ -1,5 +1,6 @@
 var latestInput; //used to check for input
-var isTyping = true;
+var isTyping = false;
+var clearTextTimer = null;
 var timer;
 var timesRun = 0;
 var textOnScreen = "";
@@ -16,15 +17,18 @@ var i = 0,
     isTag=false,
     text;
 
-function type() {
+function getPrintedText(){
+  return elem = document.getElementById('paraText').innerHTML;
+}
 
+function type() {
     if (text === textOnScreen){
       setTimeout(function(){type();}, typeTime);
       isTyping = false;
       return;
     }
 
-    isTyping = true;
+
     text = textOnScreen.slice(0, i+1);
     i++;
     var elem = document.getElementById('paraText');
@@ -43,12 +47,13 @@ function type() {
 function addTextToScreen(textForScreen){
   textOnScreen = textOnScreen + textForScreen;
 }
-
+type();
 addTextToScreen('<h2 id="title" style="font-family:neb">Detetxtive...               It is time to begin your story.</h2>');
-//clearText();
+console.log("done first bit ye");
+clearText();
 addTextToScreen('<p style="font-family:ebitparty">"Welcome to Sandyford Detective-       uh,    I never caught your name.      I\'m Cheif Burns,      you are?"</p>');
 
-type();
+
 $(window).resize(fixSizes);
 
 function fixSizes(){
@@ -89,11 +94,20 @@ function printNotes(event) {
 }
 
 function clearText(){
-  if(!isTyping){
-    document.getElementById('paraText').innerHTML = "";
-    textOnScreen = "";
-  }
-  else{
-    clearText();
-  }
+  var currentText = textOnScreen;
+
+    var thread = setInterval(function(){
+      console.log(currentText.size);
+        if(currentText === getPrintedText()){
+          console.log(currentText.length);
+          textOnScreen = textOnScreen.substring(currentText.length);
+          text = "";
+          i=0;
+          document.getElementById('paraText').innerHTML = "";
+          console.log(currentText);
+          console.log(textOnScreen);
+          clearInterval(thread);
+        }
+    },1);
+
 }
