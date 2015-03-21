@@ -3,10 +3,15 @@ var clearTextTimer = null;
 var timer;
 var timesRun = 0;
 var textOnScreen = "";
+var previousAct = 0;
 var i = 0,
     isTag=false,
     text;
 var typeTime = 55; /*Very fast for immediate results, good reading speed is 45*/
+
+//<GAME VARIABLES!!!>
+var name;
+//</GAME VARIABLES!!!>
 
 window.onLoad = (function($) {
   timer = setInterval(fixSizes, 1);
@@ -68,6 +73,7 @@ function printText(event) {
       latestInput = printMainText;
       x = document.getElementById("inputTextMain");
       x.value = "";
+      startNextAct();
   }
 }
 
@@ -85,6 +91,15 @@ function printNotes(event) {
   }
 }
 
+function startNextAct(){
+  if(previousAct == 0){
+    firstAct();
+  }
+  if(previousAct == 1){
+
+  }
+}
+
 function clearText(){
   var currentText = textOnScreen;
 
@@ -97,6 +112,14 @@ function clearText(){
           clearInterval(thread);
         }
     },1);
+}
+
+function firstAct(){
+  previousAct = 1;
+  name = latestInput;
+  addTextToScreen('<p style="font-family:ebitparty">"Ah, well it\'s a pleasure to meet you ' + name + '"</p>            ');
+  addTextToScreen('<p style="font-family:ebitparty">"Now, down to this case of yours. As you may already know there have been a string of murders here in Sandyford - 3 to be precise. Each murder has happened 1 day after the last. If this pattern continues, there will be a murder tonight. Your job is to find out whoever is behind this and get them behind bars before there is no one left in this bloody town to save.</p>');
+  addTextToScreen('<p style="font-family:ebitparty">"Good luck detective.       I know you won\'t let me down."             </p>');
 }
 
 type();
