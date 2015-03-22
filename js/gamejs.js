@@ -94,8 +94,13 @@ function printNotes(event) {
 function startNextAct(){
   if(previousAct == 0){
     firstAct();
+    previousAct = 1;
   }
   if(previousAct == 1){
+    secondAct();
+    previousAct = 2;
+  }
+  if(previousAct == 2){
 
   }
 }
@@ -106,22 +111,30 @@ function clearText(){
     var thread = setInterval(function(){
         if(currentText === getPrintedText()){
           textOnScreen = textOnScreen.substring(currentText.length);
+          console.log(currentText.length);
           text = "";
           i=0;
           document.getElementById('paraText').innerHTML = "";
           clearInterval(thread);
         }
+        console.log(currentText);
+        console.log(getPrintedText());
     },1);
 }
 
 function firstAct(){
-  previousAct = 1;
   name = latestInput;
   addTextToScreen('<p style="font-family:ebitparty">"Ah, well it\'s a pleasure to meet you ' + name + '"</p>            ');
   addTextToScreen('<p style="font-family:ebitparty">"Now, down to this case of yours. As you may already know there have been a string of murders here in Sandyford - 3 to be precise. Each murder has happened 1 day after the last. If this pattern continues, there will be a murder tonight. Your job is to find out whoever is behind this and get them behind bars before there is no one left in this bloody town to save."</p>');
   addTextToScreen('<p style="font-family:ebitparty">"Good luck detective.       I know you won\'t let me down."             </p>');
 }
 
+function secondAct(){
+  clearText();
+  addTextToScreen('<p style="font-family:ebitparty"><u>Chapter 1:       The Town</u></p>            ');
+  clearText();
+  addTextToScreen('<p style="font-family:ebitparty">To be continued!</p>');
+}
 type();
 addTextToScreen('<h2 id="title" style="font-family:neb">Detetxtive...               It is time to begin your story.</h2>                                           ');
 clearText();
