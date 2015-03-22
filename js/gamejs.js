@@ -132,7 +132,6 @@ function firstAct(){
 function secondAct(){
   clearText();
   addTextToScreen('<p style="font-family:ebitparty"><u>Chapter 1:       The Town</u></p>            ');
-  clearText();
   addTextToScreen('<p style="font-family:ebitparty">To be continued!</p>');
 }
 type();
