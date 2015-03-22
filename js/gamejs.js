@@ -7,7 +7,7 @@ var previousAct = 0;
 var i = 0,
     isTag=false,
     text;
-var typeTime = 55; /*Very fast for immediate results, good reading speed is 45*/
+var typeTime = 55;
 
 //<GAME VARIABLES!!!>
 var name;
@@ -122,17 +122,26 @@ function clearText(){
     },1);
 }
 
-function firstAct(){
+function firstAct(){ //Intro
   name = latestInput;
   addTextToScreen('<p style="font-family:ebitparty">"Ah, well it\'s a pleasure to meet you ' + name + '"</p>            ');
-  addTextToScreen('<p style="font-family:ebitparty">"Now, down to this case of yours. As you may already know there have been a string of murders here in Sandyford - 3 to be precise. Each murder has happened 1 day after the last. If this pattern continues, there will be a murder tonight. Your job is to find out whoever is behind this and get them behind bars before there is no one left in this bloody town to save."</p>');
-  addTextToScreen('<p style="font-family:ebitparty">"Good luck detective.       I know you won\'t let me down."             </p>');
+  addTextToScreen('<p style="font-family:ebitparty">"Now, down to this case of yours. As you may already know there have been a string of murders here in Sandyford - 3 to be precise. Each murder 2 nights after the last. If this pattern continues, there will be a murder tomorrow night. Your job is to find out whoever is behind this and get them behind bars before there is no one left in this bloody town to save."</p>');
+  addTextToScreen('<p style="font-family:ebitparty">"Good luck detective.       I know you won\'t let me down."                    </p>');
 }
 
-function secondAct(){
+function secondAct(){ //Ch1
   clearText();
   addTextToScreen('<p style="font-family:ebitparty"><u>Chapter 1:       The Town</u></p>            ');
-  addTextToScreen('<p style="font-family:ebitparty">To be continued!</p>');
+  addTextToScreen('<p style="font-family:ebitparty">"It must have been a long journey down here, perhaps you\'d like to turn in for the night. There is a fantastic hotel a few streets away from here, I can give you dircetions if you\'d like."</p>');
+  var directionsResponce;
+  switch() {
+    case "Give me directions to the hotel":
+        directionsResponce = "Sure, ...";
+        break;
+    case "No thanks":
+        directionsResponce = "Looks like you still got some energy inside of you. How about you visit ..."
+        break;
+    }
 }
 type();
 addTextToScreen('<h2 id="title" style="font-family:neb">Detetxtive...               It is time to begin your story.</h2>                                           ');
