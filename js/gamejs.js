@@ -1,4 +1,5 @@
 var latestInput; //used to check for input
+var previousInput;
 var clearTextTimer = null;
 var timer;
 var timesRun = 0;
@@ -7,12 +8,13 @@ var previousAct = 0;
 var i = 0,
     isTag=false,
     text;
-var typeTime = 55;
+var typeTime = 55; /*Very fast for immediate results, good reading speed is 45*/
 
 //<GAME VARIABLES!!!>
 var name;
 //</GAME VARIABLES!!!>
 
+//Initialize listeners etc
 window.onLoad = (function($) {
   timer = setInterval(fixSizes, 1);
   $("#inputTextMain").keypress(printText);
@@ -21,6 +23,7 @@ window.onLoad = (function($) {
 
 $(window).resize(fixSizes);
 
+//Adjusts element sizes according to screen size
 function fixSizes(){
   mapContainer = document.getElementById("map");
   padder = document.getElementById("breaker");
@@ -35,7 +38,7 @@ function fixSizes(){
 }
 
 
-
+//Called once, types while queue is not empty
 function type() {
     if (text === textOnScreen){
       setTimeout(function(){type();}, typeTime);
@@ -58,14 +61,17 @@ function type() {
     setTimeout(function(){type();}, typeTime);
 }
 
+//Add text to typing queue
 function addTextToScreen(textForScreen){
   textOnScreen = textOnScreen + textForScreen;
 }
 
+//Get text on screen
 function getPrintedText(){
   return elem = document.getElementById('paraText').innerHTML;
 }
 
+//Receives user input and adds to screen
 function printText(event) {
   if(event.keyCode == 13){
       printMainText = document.getElementById("inputTextMain").value;
@@ -73,10 +79,11 @@ function printText(event) {
       latestInput = printMainText;
       x = document.getElementById("inputTextMain");
       x.value = "";
-      startNextAct();
+      startNextPartOfAct();
   }
 }
 
+//Used to print notes in the notes section (bottom right)
 function printNotes(event) {
   if(event.keyCode == 13){
     var x = document.getElementById("inputTextNotes");
@@ -91,23 +98,33 @@ function printNotes(event) {
   }
 }
 
+//Before input
 function startNextAct(){
-  if(previousAct == 0){
-    firstAct();
-    previousAct = 1;
-  }
   if(previousAct == 1){
-    secondAct();
+    secondAct(true);
     previousAct = 2;
-  }
-  if(previousAct == 2){
+  }else if(previousAct == 2){
 
   }
 }
 
+//After input
+function startNextPartOfAct(){
+  if(previousAct == 0){
+    firstAct();
+    previousAct = 1;
+    previousInput = latestInput;
+    startNextAct();
+  }else if(previousAct == 2){
+    secondAct(false);
+  }else if(previousAct == 3){
+
+  }
+}
+
+//Used to clear text from screen
 function clearText(){
   var currentText = textOnScreen;
-
     var thread = setInterval(function(){
         if(currentText === getPrintedText()){
           textOnScreen = textOnScreen.substring(currentText.length);
@@ -117,32 +134,52 @@ function clearText(){
           document.getElementById('paraText').innerHTML = "";
           clearInterval(thread);
         }
-        console.log(currentText);
-        console.log(getPrintedText());
     },1);
 }
 
-function firstAct(){ //Intro
+
+//ACTS
+function firstAct(){
   name = latestInput;
   addTextToScreen('<p style="font-family:ebitparty">"Ah, well it\'s a pleasure to meet you ' + name + '"</p>            ');
-  addTextToScreen('<p style="font-family:ebitparty">"Now, down to this case of yours. As you may already know there have been a string of murders here in Sandyford - 3 to be precise. Each murder 2 nights after the last. If this pattern continues, there will be a murder tomorrow night. Your job is to find out whoever is behind this and get them behind bars before there is no one left in this bloody town to save."</p>');
-  addTextToScreen('<p style="font-family:ebitparty">"Good luck detective.       I know you won\'t let me down."                    </p>');
+  addTextToScreen('<p style="font-family:ebitparty">"Now, down to this case of yours. As you may already know there have been a string of murders here in Sandyford - 3 to be precise. Each murder has happened 1 day after the last. If this pattern continues, there will be a murder tonight. Your job is to find out whoever is behind this and get them behind bars before there is no one left in this bloody town to save."</p>');
+  addTextToScreen('<p style="font-family:ebitparty">"Good luck detective.       I know you won\'t let me down."             </p>');
 }
 
-function secondAct(){ //Ch1
-  clearText();
-  addTextToScreen('<p style="font-family:ebitparty"><u>Chapter 1:       The Town</u></p>            ');
-  addTextToScreen('<p style="font-family:ebitparty">"It must have been a long journey down here, perhaps you\'d like to turn in for the night. There is a fantastic hotel a few streets away from here, I can give you dircetions if you\'d like."</p>');
-  var directionsResponce;
-  switch() {
-    case "Give me directions to the hotel":
-        directionsResponce = "Sure, ...";
-        break;
-    case "No thanks":
-        directionsResponce = "Looks like you still got some energy inside of you. How about you visit ..."
-        break;
+function secondAct(first){
+  if(first == true){
+    clearText();
+    addTextToScreen('<p style="font-family:ebitparty"><u>Chapter 1:       The Town</u></p>            ');
+    addTextToScreen('<p style="font-family:ebitparty">"It must have been a long journey down here, perhaps you\'d like to turn in for the night. There is a fantastic hotel a few streets away from here, I can give you dircetions if you\'d like."</p>');
+
+  }else{
+    var directionsResponse;
+    var validResponse = true;
+    switch(latestInput) {
+      case "Give me directions to the hotel":
+          directionsResponse = "Sure, ...";
+          break;
+      case "No thanks":
+          directionsResponse = "Looks like you still got some energy inside of you. How about you visit ...";
+          break;
+      default:
+          directionsResponse = "Sorry, I don't quite understand what you are saying."
+          validResponse = false;
+          break;
     }
+
+    addTextToScreen(directionsResponse);
+
+    if(validResponse){
+      startNextAct();
+    }
+  }
+
 }
+
+
+
+//Run's on startup, no touchy!
 type();
 addTextToScreen('<h2 id="title" style="font-family:neb">Detetxtive...               It is time to begin your story.</h2>                                           ');
 clearText();

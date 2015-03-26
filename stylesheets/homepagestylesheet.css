@@ -4,8 +4,8 @@
 }
 
 body{
-  /*background-image: url('../assets/bg2.png'); clean bg*/
-  background-image: url('../assets/bg.png'); /*pixel bg*/
+  background-image: url('../assets/bg2.png'); clean bg
+  /*background-image: url('../assets/bg.png'); /*pixel bg*/
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
