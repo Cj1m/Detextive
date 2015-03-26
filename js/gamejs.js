@@ -157,13 +157,13 @@ function secondAct(first){
     var validResponse = true;
     switch(latestInput) {
       case "Give me directions to the hotel":
-          directionsResponse = "Sure, ...";
+          directionsResponse = '<p style="font-family:ebitparty">Sure, ...</p>  ';
           break;
       case "No thanks":
-          directionsResponse = "Looks like you still got some energy inside of you. How about you visit ...";
+          directionsResponse = '<p style="font-family:ebitparty">Looks like you still got some energy inside of you. How about you visit ...</p>';
           break;
       default:
-          directionsResponse = "Sorry, I don't quite understand what you are saying."
+          directionsResponse = '<p style="font-family:ebitparty">Sorry, I don\'t quite understand what you are saying.</p>';
           validResponse = false;
           break;
     }
