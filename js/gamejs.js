@@ -66,6 +66,12 @@ function addTextToScreen(textForScreen){
   textOnScreen = textOnScreen + textForScreen;
 }
 
+//Skip typing just display text
+function skipTyping(){
+  i = textOnScreen.length - 1;
+  text = textOnScreen.slice(0,i);
+}
+
 //Get text on screen
 function getPrintedText(){
   return elem = document.getElementById('paraText').innerHTML;
@@ -75,11 +81,16 @@ function getPrintedText(){
 function printText(event) {
   if(event.keyCode == 13){
       printMainText = document.getElementById("inputTextMain").value;
-      addTextToScreen("<i>" + printMainText + "</i><br>");
-      latestInput = printMainText;
-      x = document.getElementById("inputTextMain");
-      x.value = "";
-      startNextPartOfAct();
+
+      if(printMainText != ""){
+        addTextToScreen("<i>" + printMainText + "</i><br>");
+        latestInput = printMainText;
+        x = document.getElementById("inputTextMain");
+        x.value = "";
+        startNextPartOfAct();
+      }else{
+        skipTyping();
+      }
   }
 }
 
@@ -162,7 +173,7 @@ function secondAct(first){
       case "no":
           directionsResponse = '<p style="font-family:ebitparty">Looks like you still got some energy inside of you. How about you visit ...</p>';
           break;
-      case "undef ":
+      case "undef":
           directionsResponse = '<p style="font-family:ebitparty">Sorry, I don\'t quite understand what you are saying.</p>';
           validResponse = false;
           break;
@@ -190,10 +201,10 @@ addTextToScreen('<p style="font-family:ebitparty">"Welcome to Sandyford Detectiv
 function yesorno(word){
   word = word.toLowerCase();
   if(word.indexOf("no") > -1){
-    return "no";
+    return 'no';
   }else if(word.indexOf("yes") > -1 || word.indexOf("yeah") > -1){
-    return "yes";
+    return 'yes';
   }else{
-    return "undef";
+    return 'undef';
   }
 }
