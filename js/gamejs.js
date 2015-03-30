@@ -19,6 +19,24 @@ window.onLoad = (function($) {
   timer = setInterval(fixSizes, 1);
   $("#inputTextMain").keypress(printText);
   $("#inputTextNotes").keypress(printNotes);
+
+  $("#mapImage").draggable({
+      stop: function(event, ui) {
+        mapWidth = $("#mapImage").width() -  $("#map").width();
+        mapHeight = $("#mapImage").height() -  $("#map").height();
+        
+        if(ui.position.left>0){
+          $("#mapImage").animate({"left": "0px"}, 300);
+        }else if(ui.position.left<-mapWidth){
+          $("#mapImage").animate({"left": "-"+mapWidth+"px"}, 300);
+        }
+
+        if(ui.position.top > 0){
+          $("#mapImage").animate({"top": "0px"}, 300);
+        }else if(ui.position.top < -mapHeight){
+          $("#mapImage").animate({"top": "-"+mapHeight+"px"}, 300);
+        }
+    }, scroll: false });
 })(jQuery);
 
 $(window).resize(fixSizes);

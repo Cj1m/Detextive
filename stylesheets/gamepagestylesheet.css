@@ -103,6 +103,7 @@ body {
   line-height: 0;
   text-align: left;
   color: #ffffff;
+  overflow: hidden;
   font-family: ebitparty;
 }
 
