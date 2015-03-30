@@ -150,19 +150,19 @@ function secondAct(first){
   if(first == true){
     clearText();
     addTextToScreen('<p style="font-family:ebitparty"><u>Chapter 1:       The Town</u></p>            ');
-    addTextToScreen('<p style="font-family:ebitparty">"It must have been a long journey down here, perhaps you\'d like to turn in for the night. There is a fantastic hotel a few streets away from here, I can give you dircetions if you\'d like."</p>');
+    addTextToScreen('<p style="font-family:ebitparty">"It must have been a long journey down here, perhaps you\'d like to turn in for the night. There is a fantastic hotel a few streets away from here, I can give you directions if you\'d like."</p>');
 
   }else{
     var directionsResponse;
     var validResponse = true;
-    switch(latestInput) {
-      case "Give me directions to the hotel":
+    switch(yesorno(latestInput)) {
+      case "yes":
           directionsResponse = '<p style="font-family:ebitparty">Sure, ...</p>  ';
           break;
-      case "No thanks":
+      case "no":
           directionsResponse = '<p style="font-family:ebitparty">Looks like you still got some energy inside of you. How about you visit ...</p>';
           break;
-      default:
+      case "undef ":
           directionsResponse = '<p style="font-family:ebitparty">Sorry, I don\'t quite understand what you are saying.</p>';
           validResponse = false;
           break;
@@ -179,8 +179,21 @@ function secondAct(first){
 
 
 
-//Run's on startup, no touchy!
+//Runs on startup, no touchy!
 type();
 addTextToScreen('<h2 id="title" style="font-family:neb">Detetxtive...               It is time to begin your story.</h2>                                           ');
 clearText();
 addTextToScreen('<p style="font-family:ebitparty">"Welcome to Sandyford Detective-       uh,    I never caught your name.      I\'m Cheif Burns,      you are?"</p>');
+
+
+//Text analysis
+function yesorno(word){
+  word = word.toLowerCase();
+  if(word.indexOf("no") > -1){
+    return "no";
+  }else if(word.indexOf("yes") > -1 || word.indexOf("yeah") > -1){
+    return "yes";
+  }else{
+    return "undef";
+  }
+}
