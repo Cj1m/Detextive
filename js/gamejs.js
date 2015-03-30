@@ -24,17 +24,17 @@ window.onLoad = (function($) {
       stop: function(event, ui) {
         mapWidth = $("#mapImage").width() -  $("#map").width();
         mapHeight = $("#mapImage").height() -  $("#map").height();
-        
+
         if(ui.position.left>0){
-          $("#mapImage").animate({"left": "0px"}, 300);
+          $("#mapImage").animate({"left": "0px"},{ queue: false, duration: 300 });
         }else if(ui.position.left<-mapWidth){
-          $("#mapImage").animate({"left": "-"+mapWidth+"px"}, 300);
+          $("#mapImage").animate({"left": "-"+mapWidth+"px"},{ queue: false, duration: 300 });
         }
 
         if(ui.position.top > 0){
-          $("#mapImage").animate({"top": "0px"}, 300);
+          $("#mapImage").animate({"top": "0px"},{ queue: false, duration: 300 });
         }else if(ui.position.top < -mapHeight){
-          $("#mapImage").animate({"top": "-"+mapHeight+"px"}, 300);
+          $("#mapImage").animate({"top": "-"+mapHeight+"px"}, { queue: false, duration: 300 });
         }
     }, scroll: false });
 })(jQuery);
