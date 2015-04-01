@@ -210,9 +210,9 @@ function secondAct(first){
 
 //Runs on startup, no touchy!
 type();
-addTextToScreen('<h2 id="title" style="font-family:neb">Detetxtive...               It is time to begin your story.</h2>                                           ');
+addTextToScreen('<h2 id="title" style="font-family:neb">Detextive...               It is time to begin your story.</h2>                                           ');
 clearText();
-addTextToScreen('<p style="font-family:ebitparty">"Welcome to Sandyford Detective-       uh,    I never caught your name.      I\'m Cheif Burns,      you are?"</p>');
+addTextToScreen('<p style="font-family:ebitparty">"Welcome to Sandyford Detective-       uh,    I never caught your name.      I\'m Chief Burns,      you are?"</p>');
 
 
 //Text analysis
