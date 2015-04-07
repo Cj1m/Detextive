@@ -12,6 +12,8 @@ var typeTime = 55; /*Very fast for immediate results, good reading speed is 45*/
 
 //<GAME VARIABLES!!!>
 var name;
+var secondActResponse;
+var atHotel = false;
 //</GAME VARIABLES!!!>
 
 //Initialize listeners etc
@@ -160,7 +162,8 @@ function startNextAct(){
     secondAct(true);
     previousAct = 2;
   }else if(previousAct == 2){
-
+    thirdAct(true);
+    previousAct = 3;
   }
 }
 
@@ -214,10 +217,11 @@ function secondAct(first){
     switch(yesorno(latestInput)) {
       case "yes":
           directionsResponse = '<p style="font-family:ebitparty">Sure. It\'s on Peveril Avenue, to get there turn left at the top of this road, then take the third right and you should see it. It\'s called the Beacon Hotel.</p>  ';
+          secondActResponse = "y";
           break;
       case "no":
-          directionsResponse = '<p style="font-family:ebitparty">Looks like you still got some energy inside of you. How about you visit the local pub. You could get to know some of the locals and relax before you get to work on this case of yours. The
-     pub is just round the corner on Iser Lane, you should be able to see it on that map of yours.</p>';
+          directionsResponse = '<p style="font-family:ebitparty">Looks like you still got some energy inside of you. How about you visit the local pub. You could get to know some of the locals and relax before you get to work on this case of yours. The pub is just round the corner on Iser Lane, you should be able to see it on that map of yours.</p>';
+          secondActResponse = "n";
           break;
       case "undef":
           directionsResponse = '<p style="font-family:ebitparty">Sorry, I don\'t quite understand what you are saying.</p>';
@@ -236,7 +240,16 @@ function secondAct(first){
 
 function thirdAct(first){
   if(first == true){
-
+    var response;
+    switch(secondActResponse){
+      case "y":
+        response = '<p style="font-family:ebitparty">Well, I\'ll leave you to it. Just make sure you GO TO the correct address. The map may be of some use when checking street names.</p>'
+        break;
+      case "n":
+        response = '<p style="font-family:ebitparty">Right, well, I\'ll leave you to it. As I said, you should GO TO the pub and meet the locals.</p>'
+        break;
+    }
+    addTextToScreen(response);
   }else{
 
   }
