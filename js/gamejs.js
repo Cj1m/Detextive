@@ -15,7 +15,7 @@ var name;
 //</GAME VARIABLES!!!>
 
 //Initialize listeners etc
-window.onLoad = (function($) {
+$( document ).ready(function() {
   timer = setInterval(fixSizes, 1);
   $("#inputTextMain").keypress(printText);
   $("#inputTextNotes").keypress(printNotes);
@@ -37,9 +37,36 @@ window.onLoad = (function($) {
           $("#mapImage").animate({"top": "-"+mapHeight+"px"}, { queue: false, duration: 300 });
         }
     }, scroll: false });
-})(jQuery);
+
+  setZoomListener();
+});
 
 $(window).resize(fixSizes);
+
+//Set up zooming in and out of map
+function setZoomListener(){
+  var imageOfMap = document.getElementById("mapImage");
+  //Multi-browser support
+  if (imageOfMap.addEventListener) {
+	   imageOfMap.addEventListener("mousewheel", MouseWheelHandler, false);
+	   imageOfMap.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
+  }else{
+     imageOfMap.attachEvent("onmousewheel", MouseWheelHandler);
+  }
+}
+
+//Handler for scroll wheel
+function MouseWheelHandler(e){
+  var e = window.event || e;
+  var delta = e.wheelDelta / 120 * 50;
+
+  var imageOfMap = document.getElementById("mapImage");
+  imageOfMap.style.width = Math.max(797, Math.min(1500,imageOfMap.width + delta)) + "px";
+  imageOfMap.style.left = 1 + "px";
+  imageOfMap.style.height = Math.max(584, Math.min(1287,imageOfMap.height + delta)) + "px";
+
+  return false;
+}
 
 //Adjusts element sizes according to screen size
 function fixSizes(){
@@ -186,10 +213,11 @@ function secondAct(first){
     var validResponse = true;
     switch(yesorno(latestInput)) {
       case "yes":
-          directionsResponse = '<p style="font-family:ebitparty">Sure, ...</p>  ';
+          directionsResponse = '<p style="font-family:ebitparty">Sure. It\'s on Peveril Avenue, to get there turn left at the top of this road, then take the third right and you should see it. It\'s called the Beacon Hotel.</p>  ';
           break;
       case "no":
-          directionsResponse = '<p style="font-family:ebitparty">Looks like you still got some energy inside of you. How about you visit ...</p>';
+          directionsResponse = '<p style="font-family:ebitparty">Looks like you still got some energy inside of you. How about you visit the local pub. You could get to know some of the locals and relax before you get to work on this case of yours. The
+     pub is just round the corner on Iser Lane, you should be able to see it on that map of yours.</p>';
           break;
       case "undef":
           directionsResponse = '<p style="font-family:ebitparty">Sorry, I don\'t quite understand what you are saying.</p>';
@@ -204,6 +232,14 @@ function secondAct(first){
     }
   }
 
+}
+
+function thirdAct(first){
+  if(first == true){
+
+  }else{
+
+  }
 }
 
 
