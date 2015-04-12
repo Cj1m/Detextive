@@ -13,13 +13,13 @@ var typeTime = 55; /*Very fast for immediate results, good reading speed is 45*/
 //<GAME VARIABLES!!!>
 var name;
 var secondActResponse;
-var atHotel = false;
+var usrLocation = "Train Station";
 //</GAME VARIABLES!!!>
 
 //Initialize listeners etc
 $( document ).ready(function() {
   timer = setInterval(fixSizes, 1);
-  $("#inputTextMain").keypress(printText);
+  $("#inputTextMain")[0].onkeypress = printText;
   $("#inputTextNotes").keypress(printNotes);
 
   $("#mapImage").draggable({
