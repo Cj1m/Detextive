@@ -5,6 +5,7 @@ var timer;
 var timesRun = 0;
 var textOnScreen = "";
 var previousAct = 0;
+
 var i = 0,
     isTag=false,
     text;
@@ -87,6 +88,7 @@ function fixSizes(){
 
 //Called once, types while queue is not empty
 function type() {
+
     if (text === textOnScreen){
       setTimeout(function(){type();}, typeTime);
       return;
