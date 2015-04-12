@@ -131,7 +131,7 @@ function printText(event) {
 
       if(printMainText != ""){
         addTextToScreen("<i>" + printMainText + "</i><br>");
-        latestInput = printMainText;
+        latestInput = printMainText.toLowerCase();
         x = document.getElementById("inputTextMain");
         x.value = "";
         startNextPartOfAct();
@@ -164,6 +164,9 @@ function startNextAct(){
   }else if(previousAct == 2){
     thirdAct(true);
     previousAct = 3;
+  }else if(previousAct == 3){
+    fourthAct(true);
+    previousAct=4;
   }
 }
 
@@ -177,7 +180,7 @@ function startNextPartOfAct(){
   }else if(previousAct == 2){
     secondAct(false);
   }else if(previousAct == 3){
-
+    thirdAct(false);
   }
 }
 
@@ -251,8 +254,36 @@ function thirdAct(first){
     }
     addTextToScreen(response);
   }else{
+    var validResponse = true;
+    switch(latestInput){
+      case "go to iser lane":
+        usrLocation = "iser lane";
+        break;
+      case "go to peveril avenue":
+        usrLocation = "peveril avenue";
+        addTextToScreen('<p style="font-family:ebitparty">You arrive at the Beacon Hotel. The place looks aged and worn, but it should do you for tonight. As you walk inside you are greeted by an old man in a suit.</p>');
+        addTextToScreen('<p style="font-family:ebitparty">   \'Welcome to the Beacon Hotel, detective, you\'ve been booked in by your chief, I\'ll show you to your room\'</p>');
+        addTextToScreen('<p style="font-family:ebitparty">    You follow the man up the stairs and along a narrow hallway</p>');
+        addTextToScreen('<p style="font-family:ebitparty">    \'Here we are, room number 42. I trust you are tired from your journey, so I will leave you be. I\'ll be in the lobby if you are in need of my service.\'</p>');
+        addTextToScreen('<p style="font-family:ebitparty">    You drop your luggage and hang up your coat. You look at the clock, it\'s 23:40. You decide to turn in for the night, knowing that you have a long day ahead of you tomorrow. You get into bed and quickly fall asleep.</p>');
+        //TBC
+        break;
+      default:
+        addTextToScreen('<p style="font-family:ebitparty">I don\'t think that place exists.</p>');
+        validResponse = false;
+        break;
+    }
 
+
+
+    if(validResponse){
+      startNextAct();
+    }
   }
+}
+
+function fourthAct(first){
+  //TBC
 }
 
 
