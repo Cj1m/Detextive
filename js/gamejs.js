@@ -24,6 +24,11 @@ $( document ).ready(function() {
   $("#inputTextMain")[0].onkeypress = printText;
   $("#inputTextNotes").keypress(printNotes);
 
+  $(".invBlood").hide();
+  $(".invBloodyKnife").hide();
+  $(".invHair").hide();
+  $(".invKnife").hide();
+
   $("#mapImage").draggable({
       stop: function(event, ui) {
         mapWidth = $("#mapImage").width() -  $("#map").width();
@@ -137,6 +142,11 @@ function printText(event) {
           latestInput = printMainText.toLowerCase();
           x = document.getElementById("inputTextMain");
           x.value = "";
+          showInvBlood(latestInput);
+          showInvBloodyKnife(latestInput);
+          showInvHair(latestInput);
+          showInvKnife(latestInput);
+          startNextPartOfAct();
           startNextPartOfAct();
         }else{
           skipTyping();
@@ -157,6 +167,30 @@ function printNotes(event) {
         elem.scrollTop = elem.scrollHeight;
         x.value = "";
       }
+  }
+}
+
+function showInvBlood(word) {
+  if(word == "pick up blood sample") {
+    $(".invBlood").show();
+  }
+}
+
+function showInvBloodyKnife(word) {
+  if(word == "pick up bloody knife") {
+    $(".invBloodyKnife").show();
+  }
+}
+
+function showInvHair(word) {
+  if(word == "pick up hair sample") {
+    $(".invHair").show();
+  }
+}
+
+function showInvKnife(word) {
+  if(word == "pick up knife") {
+    $(".invKnife").show();
   }
 }
 

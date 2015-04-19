@@ -55,9 +55,37 @@ body {
   height: 90%;
 }
 
-/*.invHolder1{
+.invBlood{
+  position: relative;
+  display: inline-block;
+  height: 64px;
+  width: 64px;
+  background-image: url('../assets/blood.png');
+}
 
-}*/
+.invBloodyKnife{
+  position: relative;
+  display: inline-block;
+  height: 64px;
+  width: 64px;
+  background-image: url('../assets/bloodyknife.png');
+}
+
+.invHair{
+  position: relative;
+  display: inline-block;
+  height: 64px;
+  width: 64px;
+  background-image: url('../assets/hair.png');
+}
+
+.invKnife{
+  position: relative;
+  display: inline-block;
+  height: 64px;
+  width: 64px;
+  background-image: url('../assets/knife.png');
+}
 
 .notesContainer{
   position: relative;
