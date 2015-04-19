@@ -15,6 +15,7 @@ var typeTime = 55; /*Very fast for immediate results, good reading speed is 45*/
 var name;
 var secondActResponse;
 var usrLocation = "Train Station";
+var isGameover = false;
 //</GAME VARIABLES!!!>
 
 //Initialize listeners etc
@@ -130,15 +131,16 @@ function getPrintedText(){
 function printText(event) {
   if(event.keyCode == 13){
       printMainText = document.getElementById("inputTextMain").value;
-
-      if(printMainText != ""){
-        addTextToScreen("<i>" + printMainText + "</i><br>");
-        latestInput = printMainText.toLowerCase();
-        x = document.getElementById("inputTextMain");
-        x.value = "";
-        startNextPartOfAct();
-      }else{
-        skipTyping();
+      if(!isGameover){
+        if(printMainText != ""){
+          addTextToScreen("<i>" + printMainText + "</i><br>");
+          latestInput = printMainText.toLowerCase();
+          x = document.getElementById("inputTextMain");
+          x.value = "";
+          startNextPartOfAct();
+        }else{
+          skipTyping();
+        }
       }
   }
 }
@@ -183,6 +185,8 @@ function startNextPartOfAct(){
     secondAct(false);
   }else if(previousAct == 3){
     thirdAct(false);
+  }else if(previousAct == 4){
+    fourthAct(false);
   }
 }
 
@@ -268,7 +272,6 @@ function thirdAct(first){
         addTextToScreen('<p style="font-family:ebitparty">    You follow the man up the stairs and along a narrow hallway</p>');
         addTextToScreen('<p style="font-family:ebitparty">    \'Here we are, room number 42. I trust you are tired from your journey, so I will leave you be. I\'ll be in the lobby if you are in need of my service.\'</p>');
         addTextToScreen('<p style="font-family:ebitparty">    You drop your luggage and hang up your coat. You look at the clock, it\'s 23:40. You decide to turn in for the night, knowing that you have a long day ahead of you tomorrow. You get into bed and quickly fall asleep.</p>');
-        //TBC
         break;
       default:
         addTextToScreen('<p style="font-family:ebitparty">I don\'t think that place exists.</p>');
@@ -285,7 +288,39 @@ function thirdAct(first){
 }
 
 function fourthAct(first){
-  //TBC
+  if(first){
+    if(usrLocation == "peveril avenue"){
+      addTextToScreen('<p style="font-family:ebitparty">    ...</p>');
+      addTextToScreen('<p style="font-family:ebitparty">    ...</p>');
+      addTextToScreen('<p style="font-family:ebitparty">    ...</p>');
+      addTextToScreen('<p style="font-family:ebitparty">    *SCREAM*</p>');
+      addTextToScreen('<p style="font-family:ebitparty">You are woken by the sound of a scream from a woman in the room across from yours.</p>');
+      addTextToScreen('<p style="font-family:ebitparty">     What do you do?</p>');
+    }else{
+      //AT THE PUB!
+    }
+  }else{
+    if(usrLocation == "peveril avenue"){
+      var validResponse = true;
+
+      switch(latestInput){
+        case "stay in bed":
+          addTextToScreen('<p style="font-family:ebitparty">    You close your eyes and slowly drift back to sleep. As you are about to nod of you feel a piercing agony in your chest, you look, someone has stabbed you in the heart. "Go back to sleep" you hear a man\'s voice say softly, before losing your consciousness...</p>');
+          gameover();
+          break;
+        case "investigate":
+          addTextToScreen('<p style="font-family:ebitparty">    You check that the door is locked and secure before going back to your warm bed.</p>');
+          break;
+        default:
+          validResponse = false;
+          addTextToScreen('<p style="font-family:ebitparty">That is not an option at this time!</p>');
+          break;
+      }
+
+    }else{
+      //AT THE PUB!
+    }
+  }
 }
 
 
@@ -296,6 +331,11 @@ addTextToScreen('<h2 id="title" style="font-family:neb">Detextive...            
 clearText();
 addTextToScreen('<p style="font-family:ebitparty">"Welcome to Sandyford Detective-       uh,    I never caught your name.      I\'m Chief Burns,      you are?"</p>');
 
+//Game mechanics
+function gameover(){
+  isGameover = true;
+  addTextToScreen("It appears you have DIED!!! Press F5 to restart!");
+}
 
 //Text analysis
 function yesorno(word){
