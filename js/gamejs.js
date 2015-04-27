@@ -147,7 +147,6 @@ function printText(event) {
           showInvHair(latestInput);
           showInvKnife(latestInput);
           startNextPartOfAct();
-          startNextPartOfAct();
         }else{
           skipTyping();
         }
