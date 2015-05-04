@@ -143,7 +143,6 @@ function printText(event) {
           x = document.getElementById("inputTextMain");
           x.value = "";
           showInvBlood(latestInput);
-          showInvBloodyKnife(latestInput);
           showInvHair(latestInput);
           showInvKnife(latestInput);
           startNextPartOfAct();
@@ -176,7 +175,7 @@ function showInvBlood(word) {
 }
 
 function showInvBloodyKnife(word) {
-  if(word == "pick up bloody knife") {
+  if(word == "pick up the bloody knife") {
     $(".invBloodyKnife").show();
   }
 }
@@ -188,7 +187,7 @@ function showInvHair(word) {
 }
 
 function showInvKnife(word) {
-  if(word == "pick up knife") {
+  if(word == "pick up the knife") {
     $(".invKnife").show();
   }
 }
@@ -204,6 +203,9 @@ function startNextAct(){
   }else if(previousAct == 3){
     fourthAct(true);
     previousAct=4;
+  }else if(previousAct == 4){
+    fifthAct(true);
+    previousAct=5;
   }
 }
 
@@ -220,6 +222,8 @@ function startNextPartOfAct(){
     thirdAct(false);
   }else if(previousAct == 4){
     fourthAct(false);
+  }else if(previousAct == 5){
+    fifthAct(false);
   }
 }
 
@@ -243,7 +247,7 @@ function clearText(){
 function firstAct(){
   name = latestInput;
   addTextToScreen('<p style="font-family:ebitparty">"Ah, well it\'s a pleasure to meet you ' + name + '"</p>            ');
-  addTextToScreen('<p style="font-family:ebitparty">"Now, down to this case of yours. As you may already know there have been a string of murders here in Sandyford - 3 to be precise. Each murder has happened 1 day after the last. If this pattern continues, there will be a murder tonight. Your job is to find out whoever is behind this and get them behind bars before there is no one left in this bloody town to save."</p>');
+  addTextToScreen('<p style="font-family:ebitparty">"Now, down to this case of yours. As you may already know there has been a string of murders here in Sandyford - 3 to be precise. Each murder has happened 1 day after the last. If this pattern continues, there will be a murder tomorrow night. Your job is to find out whoever is behind this and get them behind bars before there is no one left in this bloody town to save."</p>');
   addTextToScreen('<p style="font-family:ebitparty">"Good luck detective.       I know you won\'t let me down."             </p>');
 }
 
@@ -312,8 +316,6 @@ function thirdAct(first){
         break;
     }
 
-
-
     if(validResponse){
       startNextAct();
     }
@@ -323,11 +325,11 @@ function thirdAct(first){
 function fourthAct(first){
   if(first){
     if(usrLocation == "peveril avenue"){
-      addTextToScreen('<p style="font-family:ebitparty">    ...</p>');
-      addTextToScreen('<p style="font-family:ebitparty">    ...</p>');
-      addTextToScreen('<p style="font-family:ebitparty">    ...</p>');
-      addTextToScreen('<p style="font-family:ebitparty">    *SCREAM*</p>');
-      addTextToScreen('<p style="font-family:ebitparty">You are woken by the sound of a scream from a woman in the room across from yours.</p>');
+      addTextToScreen('<p style="font-family:ebitparty">                                                    .        .        .</p>');
+      addTextToScreen('<p style="font-family:ebitparty">                .        .        .</p>');
+      addTextToScreen('<p style="font-family:ebitparty">                .        .        .</p>');
+      addTextToScreen('<p style="font-family:ebitparty">                                                        *SCREAM*</p>');
+      addTextToScreen('<p style="font-family:ebitparty">You are awoken by the sound of a scream from a woman in the room across from yours.</p>');
       addTextToScreen('<p style="font-family:ebitparty">     What do you do?</p>');
     }else{
       //AT THE PUB!
@@ -335,14 +337,13 @@ function fourthAct(first){
   }else{
     if(usrLocation == "peveril avenue"){
       var validResponse = true;
-
       switch(latestInput){
         case "stay in bed":
           addTextToScreen('<p style="font-family:ebitparty">    You close your eyes and slowly drift back to sleep. As you are about to nod of you feel a piercing agony in your chest, you look, someone has stabbed you in the heart. "Go back to sleep" you hear a man\'s voice say softly, before losing your consciousness...</p>');
           gameover();
           break;
         case "investigate":
-          addTextToScreen('<p style="font-family:ebitparty">    You check that the door is locked and secure before going back to your warm bed.</p>');
+          addTextToScreen('<p style="font-family:ebitparty">    Feeling uneasy about your decision, you decide to get up and investigate the situation.</p>');
           break;
         default:
           validResponse = false;
@@ -353,9 +354,48 @@ function fourthAct(first){
     }else{
       //AT THE PUB!
     }
+
+    if(validResponse){
+      startNextAct();
+    }
   }
 }
 
+function fifthAct(first){
+if(first == true){
+  addTextToScreen('<p style="font-family:ebitparty">    You grab your trousers and hastely put them on. You leave your room and cautiosly approach the door from where you heard the scream.</p>');
+  addTextToScreen('<p style="font-family:ebitparty">                 *Cre    e    e    e    a    a    a    a    ak*</p>');
+  addTextToScreen('<p style="font-family:ebitparty">    A cold gush of wind hits your face, you are blinded for a split second from the cold shock. You catch a glimse of a tall, slennder figure hopping out of the opposing window. In an attempt to catch him you race to the window and look out,     but all you see is the dark town below you -       he is no where to be seen.</p>');
+  addTextToScreen('<p style="font-family:ebitparty">    You turn around to see the body of a young woman lying in a pool of her own blood - her neck sliced open, still sparying the sheets and walls that which surround her.</p>');
+  addTextToScreen('<p style="font-family:ebitparty">    You rip a certain from the window and rush to the young woman. You apply an amence amount of pressure on her neck with the curatin in the hopes that it may stop the bleeding. Yet it is too late to save her, as you check her pulse to find that she has none.</p>');
+
+    if(usrLocation == "peveril avenue"){
+      var validResponse = true;
+      switch(latestInput){
+        case "search the body":
+          addTextToScreen('<p style="font-family:ebitparty">    You decide it\'s time to do your job. You whip out your leather gloves from your back pocket and search to body for any clues.</p>');
+          addTextToScreen('<p style="font-family:ebitparty">    Immediately you see the perpetrator\'s murder weapon, a kitchen knife -     drenched in blood.          Will you pick it up?</p>');
+          showInvBloodyKnife(latestInput);
+          addTextToScreen('<p style="font-family:ebitparty">    It\'s too dark to find any other samller clues that may be of valuable use. You leave the room and you are swarmed by the guests at the hotel. You tell the that there has been a murder but not to worry as the suspect is long, long away.</p>');
+          break;
+        case "leave":
+          addTextToScreen('<p style="font-family:ebitparty">    You are too tired to begin onvestiagting the body and leave it \'til tomorrow morning. You leave the room and you are swarmed by the guests at the hotel. You tell the that there has been a murder but not to worry as the suspect is long, long away.</p>');
+          break;
+        default:
+          validResponse = false;
+          addTextToScreen('<p style="font-family:ebitparty">That is not an option at this time!</p>');
+          break;
+      }
+
+    }else{
+      //AT THE PUB!
+    }
+
+    if(validResponse){
+      startNextAct();
+    }
+  }
+}
 
 
 //Runs on startup, no touchy!
