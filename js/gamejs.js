@@ -368,33 +368,29 @@ if(first == true){
   addTextToScreen('<p style="font-family:ebitparty">    A cold gush of wind hits your face, you are blinded for a split second from the cold shock. You catch a glimse of a tall, slennder figure hopping out of the opposing window. In an attempt to catch him you race to the window and look out,     but all you see is the dark town below you -       he is no where to be seen.</p>');
   addTextToScreen('<p style="font-family:ebitparty">    You turn around to see the body of a young woman lying in a pool of her own blood - her neck sliced open, still sparying the sheets and walls that which surround her.</p>');
   addTextToScreen('<p style="font-family:ebitparty">    You rip a certain from the window and rush to the young woman. You apply an amence amount of pressure on her neck with the curatin in the hopes that it may stop the bleeding. Yet it is too late to save her, as you check her pulse to find that she has none.</p>');
-
-    if(usrLocation == "peveril avenue"){
-      var validResponse = true;
-      switch(latestInput){
-        case "search the body":
-          addTextToScreen('<p style="font-family:ebitparty">    You decide it\'s time to do your job. You whip out your leather gloves from your back pocket and search to body for any clues.</p>');
-          addTextToScreen('<p style="font-family:ebitparty">    Immediately you see the perpetrator\'s murder weapon, a kitchen knife -     drenched in blood.          Will you pick it up?</p>');
-          showInvBloodyKnife(latestInput);
-          addTextToScreen('<p style="font-family:ebitparty">    It\'s too dark to find any other samller clues that may be of valuable use. You leave the room and you are swarmed by the guests at the hotel. You tell the that there has been a murder but not to worry as the suspect is long, long away.</p>');
-          break;
-        case "leave":
-          addTextToScreen('<p style="font-family:ebitparty">    You are too tired to begin onvestiagting the body and leave it \'til tomorrow morning. You leave the room and you are swarmed by the guests at the hotel. You tell the that there has been a murder but not to worry as the suspect is long, long away.</p>');
-          break;
-        default:
-          validResponse = false;
-          addTextToScreen('<p style="font-family:ebitparty">That is not an option at this time!</p>');
-          break;
-      }
-
-    }else{
-      //AT THE PUB!
+}else{
+      if(usrLocation == "peveril avenue"){
+          var validResponse = true;
+          switch(latestInput){
+            case "search the body":
+              addTextToScreen('<p style="font-family:ebitparty">    You decide it\'s time to do your job. You whip out your leather gloves from your back pocket and search to body for any clues.</p>');
+              addTextToScreen('<p style="font-family:ebitparty">    Immediately you see the perpetrator\'s murder weapon, a kitchen knife -     drenched in blood.      You pick it up</p>');
+              showInvBloodyKnife("pick up the bloody knife");
+              addTextToScreen('<p style="font-family:ebitparty">    It\'s too dark to find any other samller clues that may be of valuable use. You leave the room and you are swarmed by the guests at the hotel. You tell the that there has been a murder but not to worry as the suspect is long, long away.</p>');
+              break;
+            case "leave":
+              addTextToScreen('<p style="font-family:ebitparty">    You are too tired to begin onvestiagting the body and leave it \'til tomorrow morning. You leave the room and you are swarmed by the guests at the hotel. You tell the that there has been a murder but not to worry as the suspect is long, long away.</p>');
+              break;
+            default:
+              validResponse = false;
+              addTextToScreen('<p style="font-family:ebitparty">That is not an option at this time!</p>');
+              break;
+          }
+          if(validResponse){
+            startNextAct();
+          }
+        }
     }
-
-    if(validResponse){
-      startNextAct();
-    }
-  }
 }
 
 
