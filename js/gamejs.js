@@ -246,31 +246,31 @@ function clearText(){
 //ACTS
 function firstAct(){
   name = latestInput;
-  addTextToScreen('<p style="font-family:ebitparty">"Ah, well it\'s a pleasure to meet you ' + name + '"</p>            ');
-  addTextToScreen('<p style="font-family:ebitparty">"Now, down to this case of yours. As you may already know there has been a string of murders here in Sandyford - 3 to be precise. Each murder has happened 1 day after the last. If this pattern continues, there will be a murder tomorrow night. Your job is to find out whoever is behind this and get them behind bars before there is no one left in this bloody town to save."</p>');
-  addTextToScreen('<p style="font-family:ebitparty">"Good luck detective.       I know you won\'t let me down."             </p>');
+  addTextToScreen('<p style="font-family:munro">"Ah, well it\'s a pleasure to meet you ' + name + '"</p>            ');
+  addTextToScreen('<p style="font-family:munro">"Now, down to this case of yours. As you may already know there has been a string of murders here in Sandyford - 3 to be precise. Each murder has happened 1 day after the last. If this pattern continues, there will be a murder tomorrow night. Your job is to find out whoever is behind this and get them behind bars before there is no one left in this bloody town to save."</p>');
+  addTextToScreen('<p style="font-family:munro">"Good luck detective.       I know you won\'t let me down."             </p>');
 }
 
 function secondAct(first){
   if(first == true){
     clearText();
-    addTextToScreen('<p style="font-family:ebitparty"><u>Chapter 1:       The Town</u></p>            ');
-    addTextToScreen('<p style="font-family:ebitparty">"It must have been a long journey down here, perhaps you\'d like to turn in for the night. There is a fantastic hotel a few streets away from here, I can give you directions if you\'d like."</p>');
+    addTextToScreen('<p style="font-family:munro"><u>Chapter 1:       The Town</u></p>            ');
+    addTextToScreen('<p style="font-family:munro">"It must have been a long journey down here, perhaps you\'d like to turn in for the night. There is a fantastic hotel a few streets away from here, I can give you directions if you\'d like."</p>');
 
   }else{
     var directionsResponse;
     var validResponse = true;
     switch(yesorno(latestInput)) {
       case "yes":
-          directionsResponse = '<p style="font-family:ebitparty">Sure. It\'s on Peveril Avenue, to get there turn left at the top of this road, then take the third right and you should see it. It\'s called the Beacon Hotel.</p>  ';
+          directionsResponse = '<p style="font-family:munro">Sure. It\'s on Peveril Avenue, to get there turn left at the top of this road, then take the third right and you should see it. It\'s called the Beacon Hotel.</p>  ';
           secondActResponse = "y";
           break;
       case "no":
-          directionsResponse = '<p style="font-family:ebitparty">Looks like you still got some energy inside of you. How about you visit the local pub. You could get to know some of the locals and relax before you get to work on this case of yours. The pub is just round the corner on Iser Lane, you should be able to see it on that map of yours.</p>';
+          directionsResponse = '<p style="font-family:munro">Looks like you still got some energy inside of you. How about you visit the local pub. You could get to know some of the locals and relax before you get to work on this case of yours. The pub is just round the corner on Iser Lane, you should be able to see it on that map of yours.</p>';
           secondActResponse = "n";
           break;
       case "undef":
-          directionsResponse = '<p style="font-family:ebitparty">Sorry, I don\'t quite understand what you are saying.</p>';
+          directionsResponse = '<p style="font-family:munro">Sorry, I don\'t quite understand what you are saying.</p>';
           validResponse = false;
           break;
     }
@@ -289,10 +289,10 @@ function thirdAct(first){
     var response;
     switch(secondActResponse){
       case "y":
-        response = '<p style="font-family:ebitparty">Well, I\'ll leave you to it. Just make sure you GO TO the correct address. The map may be of some use when checking street names.</p>'
+        response = '<p style="font-family:munro">Well, I\'ll leave you to it. Just make sure you GO TO the correct address. The map may be of some use when checking street names.</p>'
         break;
       case "n":
-        response = '<p style="font-family:ebitparty">Right, well, I\'ll leave you to it. As I said, you should GO TO the pub and meet the locals.</p>'
+        response = '<p style="font-family:munro">Right, well, I\'ll leave you to it. As I said, you should GO TO the pub and meet the locals.</p>'
         break;
     }
     addTextToScreen(response);
@@ -304,14 +304,14 @@ function thirdAct(first){
         break;
       case "go to peveril avenue":
         usrLocation = "peveril avenue";
-        addTextToScreen('<p style="font-family:ebitparty">You arrive at the Beacon Hotel. The place looks aged and worn, but it should do you for tonight. As you walk inside you are greeted by an old man in a suit.</p>');
-        addTextToScreen('<p style="font-family:ebitparty">   \'Welcome to the Beacon Hotel, detective, you\'ve been booked in by your chief, I\'ll show you to your room\'</p>');
-        addTextToScreen('<p style="font-family:ebitparty">    You follow the man up the stairs and along a narrow hallway</p>');
-        addTextToScreen('<p style="font-family:ebitparty">    \'Here we are, room number 42. I trust you are tired from your journey, so I will leave you be. I\'ll be in the lobby if you are in need of my service.\'</p>');
-        addTextToScreen('<p style="font-family:ebitparty">    You drop your luggage and hang up your coat. You look at the clock, it\'s 23:40. You decide to turn in for the night, knowing that you have a long day ahead of you tomorrow. You get into bed and quickly fall asleep.</p>');
+        addTextToScreen('<p style="font-family:munro">You arrive at the Beacon Hotel. The place looks aged and worn, but it should do you for tonight. As you walk inside you are greeted by an old man in a suit.</p>');
+        addTextToScreen('<p style="font-family:munro">   \'Welcome to the Beacon Hotel, detective, you\'ve been booked in by your chief, I\'ll show you to your room\'</p>');
+        addTextToScreen('<p style="font-family:munro">    You follow the man up the stairs and along a narrow hallway</p>');
+        addTextToScreen('<p style="font-family:munro">    \'Here we are, room number 42. I trust you are tired from your journey, so I will leave you be. I\'ll be in the lobby if you are in need of my service.\'</p>');
+        addTextToScreen('<p style="font-family:munro">    You drop your luggage and hang up your coat. You look at the clock, it\'s 23:40. You decide to turn in for the night, knowing that you have a long day ahead of you tomorrow. You get into bed and quickly fall asleep.</p>');
         break;
       default:
-        addTextToScreen('<p style="font-family:ebitparty">I don\'t think that place exists.</p>');
+        addTextToScreen('<p style="font-family:munro">I don\'t think that place exists.</p>');
         validResponse = false;
         break;
     }
@@ -325,12 +325,12 @@ function thirdAct(first){
 function fourthAct(first){
   if(first){
     if(usrLocation == "peveril avenue"){
-      addTextToScreen('<p style="font-family:ebitparty">                                                    .        .        .</p>');
-      addTextToScreen('<p style="font-family:ebitparty">                .        .        .</p>');
-      addTextToScreen('<p style="font-family:ebitparty">                .        .        .</p>');
-      addTextToScreen('<p style="font-family:ebitparty">                                                        *SCREAM*</p>');
-      addTextToScreen('<p style="font-family:ebitparty">You are awoken by the sound of a scream from a woman in the room across from yours.</p>');
-      addTextToScreen('<p style="font-family:ebitparty">     What do you do?</p>');
+      addTextToScreen('<p style="font-family:munro">                                                    .        .        .</p>');
+      addTextToScreen('<p style="font-family:munro">                .        .        .</p>');
+      addTextToScreen('<p style="font-family:munro">                .        .        .</p>');
+      addTextToScreen('<p style="font-family:munro">                                                        *SCREAM*</p>');
+      addTextToScreen('<p style="font-family:munro">You are awoken by the sound of a scream from a woman in the room across from yours.</p>');
+      addTextToScreen('<p style="font-family:munro">     What do you do?</p>');
     }else{
       //AT THE PUB!
     }
@@ -339,15 +339,15 @@ function fourthAct(first){
       var validResponse = true;
       switch(latestInput){
         case "stay in bed":
-          addTextToScreen('<p style="font-family:ebitparty">    You close your eyes and slowly drift back to sleep. As you are about to nod of you feel a piercing agony in your chest, you look, someone has stabbed you in the heart. "Go back to sleep" you hear a man\'s voice say softly, before losing your consciousness...</p>');
+          addTextToScreen('<p style="font-family:munro">    You close your eyes and slowly drift back to sleep. As you are about to nod of you feel a piercing agony in your chest, you look, someone has stabbed you in the heart. "Go back to sleep" you hear a man\'s voice say softly, before losing your consciousness...</p>');
           gameover();
           break;
         case "investigate":
-          addTextToScreen('<p style="font-family:ebitparty">    Feeling uneasy about your decision, you decide to get up and investigate the situation.</p>');
+          addTextToScreen('<p style="font-family:munro">    Feeling uneasy about your decision, you decide to get up and investigate the situation.</p>');
           break;
         default:
           validResponse = false;
-          addTextToScreen('<p style="font-family:ebitparty">That is not an option at this time!</p>');
+          addTextToScreen('<p style="font-family:munro">That is not an option at this time!</p>');
           break;
       }
 
@@ -363,27 +363,27 @@ function fourthAct(first){
 
 function fifthAct(first){
 if(first == true){
-  addTextToScreen('<p style="font-family:ebitparty">    You grab your trousers and hastely put them on. You leave your room and cautiosly approach the door from where you heard the scream.</p>');
-  addTextToScreen('<p style="font-family:ebitparty">                 *Cre    e    e    e    a    a    a    a    ak*</p>');
-  addTextToScreen('<p style="font-family:ebitparty">    A cold gush of wind hits your face, you are blinded for a split second from the cold shock. You catch a glimse of a tall, slennder figure hopping out of the opposing window. In an attempt to catch him you race to the window and look out,     but all you see is the dark town below you -       he is no where to be seen.</p>');
-  addTextToScreen('<p style="font-family:ebitparty">    You turn around to see the body of a young woman lying in a pool of her own blood - her neck sliced open, still sparying the sheets and walls that which surround her.</p>');
-  addTextToScreen('<p style="font-family:ebitparty">    You rip a certain from the window and rush to the young woman. You apply an amence amount of pressure on her neck with the curatin in the hopes that it may stop the bleeding. Yet it is too late to save her, as you check her pulse to find that she has none.</p>');
+  addTextToScreen('<p style="font-family:munro">    You grab your trousers and hastely put them on. You leave your room and cautiosly approach the door from where you heard the scream.</p>');
+  addTextToScreen('<p style="font-family:munro">                 *Cre    e    e    e    a    a    a    a    ak*</p>');
+  addTextToScreen('<p style="font-family:munro">    A cold gush of wind hits your face, you are blinded for a split second from the cold shock. You catch a glimse of a tall, slennder figure hopping out of the opposing window. In an attempt to catch him you race to the window and look out,     but all you see is the dark town below you -       he is no where to be seen.</p>');
+  addTextToScreen('<p style="font-family:munro">    You turn around to see the body of a young woman lying in a pool of her own blood - her neck sliced open, still sparying the sheets and walls that which surround her.</p>');
+  addTextToScreen('<p style="font-family:munro">    You rip a certain from the window and rush to the young woman. You apply an amence amount of pressure on her neck with the curatin in the hopes that it may stop the bleeding. Yet it is too late to save her, as you check her pulse to find that she has none.</p>');
 }else{
       if(usrLocation == "peveril avenue"){
           var validResponse = true;
           switch(latestInput){
             case "search the body":
-              addTextToScreen('<p style="font-family:ebitparty">    You decide it\'s time to do your job. You whip out your leather gloves from your back pocket and search to body for any clues.</p>');
-              addTextToScreen('<p style="font-family:ebitparty">    Immediately you see the perpetrator\'s murder weapon, a kitchen knife -     drenched in blood.      You pick it up</p>');
+              addTextToScreen('<p style="font-family:munro">    You decide it\'s time to do your job. You whip out your leather gloves from your back pocket and search to body for any clues.</p>');
+              addTextToScreen('<p style="font-family:munro">    Immediately you see the perpetrator\'s murder weapon, a kitchen knife -     drenched in blood.      You pick it up</p>');
               showInvBloodyKnife("pick up the bloody knife");
-              addTextToScreen('<p style="font-family:ebitparty">    It\'s too dark to find any other samller clues that may be of valuable use. You leave the room and you are swarmed by the guests at the hotel. You tell the that there has been a murder but not to worry as the suspect is long, long away.</p>');
+              addTextToScreen('<p style="font-family:munro">    It\'s too dark to find any other samller clues that may be of valuable use. You leave the room and you are swarmed by the guests at the hotel. You tell the that there has been a murder but not to worry as the suspect is long, long away.</p>');
               break;
             case "leave":
-              addTextToScreen('<p style="font-family:ebitparty">    You are too tired to begin onvestiagting the body and leave it \'til tomorrow morning. You leave the room and you are swarmed by the guests at the hotel. You tell the that there has been a murder but not to worry as the suspect is long, long away.</p>');
+              addTextToScreen('<p style="font-family:munro">    You are too tired to begin onvestiagting the body and leave it \'til tomorrow morning. You leave the room and you are swarmed by the guests at the hotel. You tell the that there has been a murder but not to worry as the suspect is long, long away.</p>');
               break;
             default:
               validResponse = false;
-              addTextToScreen('<p style="font-family:ebitparty">That is not an option at this time!</p>');
+              addTextToScreen('<p style="font-family:munro">That is not an option at this time!</p>');
               break;
           }
           if(validResponse){
@@ -398,7 +398,7 @@ if(first == true){
 type();
 addTextToScreen('<h2 id="title" style="font-family:neb">Detextive...               It is time to begin your story.</h2>                                           ');
 clearText();
-addTextToScreen('<p style="font-family:ebitparty">"Welcome to Sandyford Detective-       uh,    I never caught your name.      I\'m Chief Burns,      you are?"</p>');
+addTextToScreen('<p style="font-family:munro">"Welcome to Sandyford Detective-       uh,    I never caught your name.      I\'m Chief Burns,      you are?"</p>');
 
 //Game mechanics
 function gameover(){
